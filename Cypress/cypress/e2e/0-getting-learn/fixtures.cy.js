@@ -2,7 +2,7 @@ describe('S Browser Checking', () => {
     it('Open the website', () => {
        cy.visit('http://zero.webappsecurity.com/login.html')
        cy.fixture("user").then(user =>{
-            const username = user.username1
+            const username = user.username
             const password = user.password
             const cari = user.cari
             const name = user.name
