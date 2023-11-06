@@ -23,7 +23,21 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
+Cypress.Commands.add('loginViaAPI', (
+    email = Cypress.env("userEmail"),
+    password = Cypress.env("userPassword"),
+    url = Cypress.env("apiUrl")
+  ) => {
+    cy.request('POST',`${url}/users/login`, {
+      username: email,
+      password
+    }).then((response) => {
+      cy.setCookie('sessionId', response.body.sessionId)
+      cy.setCookie('userId', response.body.userId)
+      //cy.setCookie('userName', response.body.userName)
+      cy.visit(`${url}/#!/main`)
+    })
+ })
 Cypress.Commands.add('payment',(payee, account, amount, date, description) => {
    cy.clearCookies()
    cy.clearLocalStorage()
@@ -64,3 +78,4 @@ Cypress.Commands.add('homepage',(url, homepage, alamat) => {
         cy.url().should('contain','https://katalon-demo-cura.herokuapp.com/')
  })
 
+ 
