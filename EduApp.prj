@@ -6,6 +6,7 @@
    <UUID>4e9e14b7-af43-49a5-8200-05f5aa5136de</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
+   <projectFileLocation>C:\Users\user\Katalon Studio\EduApp\EduApp.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>
